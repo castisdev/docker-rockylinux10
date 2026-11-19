@@ -51,9 +51,9 @@ RUN dnf install -y \
   patch \
   && dnf -y clean all
 
-ADD install_gcctoolset15.sh /script/
-RUN /script/install_gcctoolset15.sh
-ENV BUILD_TOOLSET_ENABLE=/usr/lib/gcc-toolset/15-env.source
+ADD install_gcctoolset16.sh /script/
+RUN /script/install_gcctoolset16.sh
+ENV BUILD_TOOLSET_ENABLE=/usr/lib/gcc-toolset/16-env.source
 
 ADD install_cmake443.sh /script/
 RUN /script/install_cmake443.sh
@@ -109,4 +109,4 @@ RUN wget -O - https://raw.githubusercontent.com/castisdev/ctail/master/install.s
 ADD ./.bashrc /root/.bashrc
 
 # Define default command
-CMD ["gcc-toolset-15-env", "zsh"]
+CMD ["gcc-toolset-16-env", "zsh"]
